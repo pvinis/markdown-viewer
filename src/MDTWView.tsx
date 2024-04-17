@@ -14,7 +14,7 @@ export function MDTWView({ file }: { file: string }) {
   });
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error: {error}</p>;
+  if (isError) return <p>Error: {String(error)}</p>;
 
   return (
     <article className="prose lg:prose-xl">
