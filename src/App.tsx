@@ -18,10 +18,11 @@ export function App() {
   }
 
   if (pathname.split("").filter((c) => c === "/").length > 1) {
+    console.log({ pathname, four: true });
     return <FourOhFour />;
   }
 
-  console.log({ pathname });
+  console.log({ pathname, four: true });
   return (
     <QueryClientProvider client={queryClient}>
       <MDTWView file={pathname} />
