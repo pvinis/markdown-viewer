@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 const host = "https://f000.backblazeb2.com/file/dropshare-public-pavlos";
 
 const fetchFile = async (file: string) => {
+  console.log("fetching", `${host}${file}`);
   const res = await fetch(`${host}${file}`);
   return res.text();
 };
