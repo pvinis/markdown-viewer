@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useParams } from "../router";
 
-const host = "https://f000.backblazeb2.com/file/dropshare-public-pavlos";
+const host = process.env.HOST_URL;
 
 const fetchFile = async (file: string) => {
   const res = await fetch(`${host}/${file}`);
