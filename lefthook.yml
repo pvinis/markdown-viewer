@@ -1,4 +1,0 @@
-pre-commit:
-  commands:
-    encrypt:
-      run: git secret hide
