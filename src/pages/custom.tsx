@@ -19,10 +19,12 @@ export default function Custom() {
     error,
   } = useQuery({
     queryKey: [u],
-    queryFn: () => fetchFile(u),
+    enabled: !!u,
+    queryFn: () => fetchFile(u!),
     retry: false,
   });
 
+  if (!u) return <p>Missing URL parameter</p>;
   if (isError) return <p>Error: {String(error)}</p>;
   if (isLoading) return <p>Loading...</p>;
 
