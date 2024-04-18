@@ -6,6 +6,7 @@ import { useParams } from "../router";
 const host = process.env.HOST_URL;
 
 const fetchFile = async (file: string) => {
+  console.log("fetching", file, `${host}/${file}`);
   const res = await fetch(`${host}/${file}`);
   return res.text();
 };
