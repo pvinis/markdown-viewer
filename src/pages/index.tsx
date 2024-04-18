@@ -7,3 +7,5 @@ export default function Page() {
     </>
   );
 }
+
+// spinner for loading? or some simple dots?

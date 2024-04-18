@@ -32,3 +32,10 @@ export default function MDTWView() {
 
 // mattersomething on top for title and favicon?
 /// frontmatter
+
+/// common file for this and custom
+
+// link to github
+// opensource it
+
+// link to raw md? :thinking:
