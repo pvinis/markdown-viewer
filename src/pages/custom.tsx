@@ -28,9 +28,5 @@ export default function Custom() {
   if (isError) return <p>Error: {String(error)}</p>;
   if (isLoading) return <p>Loading...</p>;
 
-  return (
-    <div className="px-6 pt-32 pb-16 max-w-prose prose lg:prose-xl mx-auto dark:prose-invert prose-quoteless prose-blockquote:text-gray-400 prose-blockquote:font-normal">
-      <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
-    </div>
-  );
+  return <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>;
 }
