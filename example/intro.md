@@ -1,5 +1,6 @@
 ---
 title: Intro
+favicon-emoji: 📝
 ---
 
 # I made a thing!
