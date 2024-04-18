@@ -8,6 +8,8 @@ export function App() {
   const currentLocation = window.location.href;
   const { pathname } = new URL(currentLocation);
 
+  console.log({ pathname });
+
   if (pathname.split("").filter((c) => c === "/").length > 1) {
     return <FourOhFour />;
   }
