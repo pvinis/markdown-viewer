@@ -7,7 +7,6 @@ export type Path =
   | `/`
   | `/:file`
   | `/custom`
-  | `/wow`
 
 export type Params = {
   '/:file': { file: string }
