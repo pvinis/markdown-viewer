@@ -8,12 +8,20 @@ export function App() {
   const currentLocation = window.location.href;
   const { pathname } = new URL(currentLocation);
 
-  console.log({ pathname });
+  if (pathname === "/") {
+    return (
+      <div className="prose lg:prose-xl">
+        <h1>Markdown Tailwind viewer</h1>
+        <p>by pavlos</p>
+      </div>
+    );
+  }
 
   if (pathname.split("").filter((c) => c === "/").length > 1) {
     return <FourOhFour />;
   }
 
+  console.log({ pathname });
   return (
     <QueryClientProvider client={queryClient}>
       <MDTWView file={pathname} />
