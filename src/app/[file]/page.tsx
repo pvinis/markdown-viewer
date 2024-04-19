@@ -1,6 +1,8 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import Head from "next/head";
+import { Helmet } from "react-helmet";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -28,7 +30,14 @@ export default function FilePage({ params }: { params: { file: string } }) {
   if (isError) return <p>Error: {String(error)}</p>;
   if (isLoading) return <p>Loading...</p>;
 
-  return <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>;
+  return (
+    <>
+      <Helmet title="WOW">
+        <title>lol</title>
+      </Helmet>
+      <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
+    </>
+  );
 }
 
 // mattersomething on top for title and favicon?
