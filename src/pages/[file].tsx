@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useParams } from "../router";
 
-const host = process.env.VITE_HOST_URL;
+const host = import.meta.env.VITE_HOST_URL;
 
 const fetchFile = async (file: string) => {
   console.log("fetching", file, `${host}/${file}`);
