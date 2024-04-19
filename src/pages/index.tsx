@@ -1,4 +1,8 @@
 export default function Page() {
+  console.log(import.meta.env.VITE_GAMO);
+  console.log(import.meta.env);
+  console.log("woaaaaw");
+  console.log("damn");
   return (
     <>
       <h1>Markdown Tailwind Viewer</h1>
