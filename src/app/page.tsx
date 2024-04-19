@@ -3,8 +3,6 @@ import Link from "next/link";
 export default function HomePage() {
   console.log(process.env.NEXT_PUBLIC_GAMO);
   // console.log(import.meta.env);
-  console.log("woaaaaw");
-  console.log("damn");
 
   return (
     <>
@@ -19,3 +17,5 @@ export default function HomePage() {
 // spinner for loading? or some simple dots?
 
 /// commit .env
+
+///try witouhgvercel.json file
