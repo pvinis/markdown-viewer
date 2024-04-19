@@ -1,26 +1,29 @@
-import { Providers } from "@/Providers";
-import type { Metadata } from "next";
-import "./globals.css";
+import { Providers } from "@/Providers"
+import type { Metadata } from "next"
+import "./globals.css"
+import { Suspense } from "react"
 
-export const metadata: Metadata = {
-  title: "MD Viewer",
-  description: "A great markdown viewer by pavlos",
-};
+// export const metadata: Metadata = {
+//   title: "MD Viewer",
+//   description: "A great markdown viewer by pavlos",
+// };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        <Providers>
-          <div className="px-6 pt-32 pb-16 max-w-prose prose lg:prose-xl mx-auto dark:prose-invert prose-quoteless prose-blockquote:text-gray-400 prose-blockquote:font-normal">
-            {children}
-          </div>
-        </Providers>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body>
+				<Suspense>
+					<Providers>
+						<div className="prose prose-quoteless mx-auto max-w-prose px-6 pb-16 pt-32 lg:prose-xl dark:prose-invert prose-blockquote:font-normal prose-blockquote:text-gray-400">
+							{children}
+						</div>
+					</Providers>
+				</Suspense>
+			</body>
+		</html>
+	)
 }
