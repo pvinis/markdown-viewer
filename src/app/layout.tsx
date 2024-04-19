@@ -1,12 +1,10 @@
-import { Providers } from "@/Providers"
 import type { Metadata } from "next"
 import "./globals.css"
-import { Suspense } from "react"
 
 // export const metadata: Metadata = {
-//   title: "MD Viewer",
-//   description: "A great markdown viewer by pavlos",
-// };
+// 	title: "MD Viewer",
+// 	description: "A great markdown viewer by pavlos",
+// }
 
 export default function RootLayout({
 	children,
@@ -16,13 +14,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<Suspense>
-					<Providers>
-						<div className="prose prose-quoteless mx-auto max-w-prose px-6 pb-16 pt-32 lg:prose-xl dark:prose-invert prose-blockquote:font-normal prose-blockquote:text-gray-400">
-							{children}
-						</div>
-					</Providers>
-				</Suspense>
+				<div className="prose prose-quoteless mx-auto max-w-prose px-6 pb-16 pt-32 lg:prose-xl dark:prose-invert prose-blockquote:font-normal prose-blockquote:text-gray-400">
+					{children}
+				</div>
 			</body>
 		</html>
 	)
