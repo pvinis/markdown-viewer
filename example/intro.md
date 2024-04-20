@@ -1,6 +1,6 @@
 ---
 title: Intro
-favicon-emoji: 📝
+favicon: https://avatars.githubusercontent.com/u/100233?v=4
 ---
 
 # I made a thing!

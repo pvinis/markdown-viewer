@@ -1,44 +1,49 @@
-"use client"
-
-import { useQuery } from "@tanstack/react-query"
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
+import { MDRenderer } from "@/MDRenderer"
+import { SupportedFrontMatter } from "@/types"
+import fm from "front-matter"
+import { Metadata } from "next"
 
 const host = process.env.NEXT_PUBLIC_MD_HOST
 
-const fetchFile = async (file: string) => {
-	const res = await fetch(`${host}/${file}`)
-	return res.text()
+interface FilePageProps {
+	params: {
+		file: string
+	}
 }
 
-export default function FilePage({ params }: { params: { file: string } }) {
+export default function FilePage({ params }: FilePageProps) {
 	const { file } = params
+	const url = `${host}/${file}`
 
-	const {
-		data: markdown,
-		isLoading,
-		isError,
-		error,
-	} = useQuery({
-		queryKey: [file],
-		queryFn: () => fetchFile(file),
-		retry: false,
-	})
-
-	if (isError) return <p>Error: {String(error)}</p>
-	if (isLoading) return <p>Loading...</p>
-
-	return <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
+	return <MDRenderer url={url} />
 }
-
-// mattersomething on top for title and favicon?
-/// frontmatter
 
 /// common file for this and custom
 
 // link to github
-// opensource it
 
 // link to raw md? :thinking::
 
 //codeblocks copy button
+
+export async function generateMetadata({ params }: FilePageProps): Promise<Metadata> {
+	const { file } = params
+	const url = `${host}/${file}`
+
+	const mdFile = await fetch(url).then((res) => res.text())
+
+	const { attributes } = fm<SupportedFrontMatter>(mdFile)
+
+	const favicon = attributes.favicon
+		? attributes.favicon
+		: attributes.faviconEmoji
+			? `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${attributes.faviconEmoji}</text></svg>`
+			: undefined
+
+	return {
+		title: attributes.title,
+		icons: favicon,
+	}
+}
+
+/// dark mode favicon

@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Head from "next/head"
 import Link from "next/link"
 
@@ -15,5 +16,7 @@ export default function FourOhFour() {
 		</>
 	)
 }
+
+export const metadata: Metadata = { title: "4 Oh 4" }
 
 // maybe try files without .md extension too before failing, for easier linking

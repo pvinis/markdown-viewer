@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { useSearchParams } from "next/navigation"
+import remarkFrontmatter from "remark-frontmatter"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -10,27 +10,20 @@ const fetchFile = async (url: string) => {
 	return res.text()
 }
 
-export default function CustomPage() {
-	const searchParams = useSearchParams()
-	const u = searchParams.get("u")
-
+export function MDRenderer({ url }: { url: string }) {
 	const {
 		data: markdown,
 		isLoading,
 		isError,
 		error,
 	} = useQuery({
-		queryKey: [u],
-		enabled: !!u,
-		queryFn: () => fetchFile(u!),
+		queryKey: [url],
+		queryFn: () => fetchFile(url),
 		retry: false,
 	})
 
-	if (!u) return <p>Missing URL parameter</p>
 	if (isError) return <p>Error: {String(error)}</p>
 	if (isLoading) return <p>Loading...</p>
 
-	return <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
+	return <Markdown remarkPlugins={[remarkGfm, remarkFrontmatter]}>{markdown}</Markdown>
 }
-
-//// add robots file
