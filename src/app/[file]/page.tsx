@@ -2,6 +2,7 @@ import { MDRenderer } from "@/MDRenderer"
 import { SupportedFrontMatter } from "@/types"
 import fm from "front-matter"
 import { Metadata } from "next"
+import posthog from "posthog-js"
 
 const host = process.env.NEXT_PUBLIC_MD_HOST
 
@@ -14,6 +15,8 @@ interface FilePageProps {
 export default function FilePage({ params }: FilePageProps) {
 	const { file } = params
 	const url = `${host}/${file}`
+
+	posthog.capture("load page", { file })
 
 	return <MDRenderer url={url} />
 }

@@ -1,6 +1,9 @@
 import Link from "next/link"
+import posthog from "posthog-js"
 
 export default function HomePage() {
+	posthog.capture("my event", { property: "value" })
+
 	return (
 		<>
 			<h1>Markdown Tailwind Viewer</h1>
