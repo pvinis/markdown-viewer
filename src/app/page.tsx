@@ -4,7 +4,9 @@ export default function HomePage() {
 	return (
 		<>
 			<h1>Markdown Tailwind Viewer</h1>
-			<p>by Pavlos Vinieratos</p>
+			<p>
+				by Pavlos Vinieratos (<Link href="https://twitter.com/pvinis">pvinis</Link>)
+			</p>
 			<p>
 				Check out the <Link href="/intro">intro</Link>, or see the{" "}
 				<Link href="https://github.com/pvinis/markdown-tailwind-viewer">source code</Link>
@@ -12,7 +14,3 @@ export default function HomePage() {
 		</>
 	)
 }
-
-// spinner for loading? or some simple dots?
-
-// better readme

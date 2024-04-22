@@ -4,7 +4,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
 	title: "MD Viewer",
-	description: "A great markdown viewer by pavlos",
+	description: "A great markdown viewer by pvinis",
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
