@@ -7,7 +7,7 @@ export default function HomePage() {
 			<p>by Pavlos Vinieratos</p>
 			<p>
 				Check out the <Link href="/intro">intro</Link>, or see the{" "}
-				<Link href="https://github.com/quad-codes/markdown-tailwind-viewer">source code</Link>
+				<Link href="https://github.com/pvinis/markdown-tailwind-viewer">source code</Link>
 			</p>
 		</>
 	)
@@ -18,3 +18,5 @@ export default function HomePage() {
 ///try witouhgvercel.json file
 
 // put back to md.quad.codes
+
+// better readme

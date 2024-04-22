@@ -25,4 +25,4 @@ https://md.quad.codes/custom?u=https://raw.githubusercontent.com/react-native-co
 
 ### Do you wanna see how it works?
 
-The source code lives [here](https://github.com/quad-codes/markdown-tailwind-viewer), go check it out!
+The source code lives [here](https://github.com/pvinis/markdown-tailwind-viewer), go check it out!
