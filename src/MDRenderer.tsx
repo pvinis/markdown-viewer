@@ -5,6 +5,7 @@ import remarkFrontmatter from "remark-frontmatter"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { fixMarkdownUrl } from "./utils"
+import { SkewLoader } from "react-spinners"
 
 const fetchFile = async (url: string) => {
 	const res = await fetch(url)
@@ -26,7 +27,14 @@ export function MDRenderer({ url }: { url: string }) {
 	})
 
 	if (isError) return <p>Error: {String(error)}</p>
-	if (isLoading) return <p>Loading...</p>
+	if (isLoading) {
+		return (
+			<div>
+				<span className="text-7xl">M</span>
+				<SkewLoader />
+			</div>
+		)
+	}
 
 	return <Markdown remarkPlugins={[remarkGfm, remarkFrontmatter]}>{markdown}</Markdown>
 }
