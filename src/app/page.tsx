@@ -17,6 +17,4 @@ export default function HomePage() {
 
 ///try witouhgvercel.json file
 
-// put back to md.quad.codes
-
 // better readme
