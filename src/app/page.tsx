@@ -1,15 +1,13 @@
 import Link from "next/link"
-import posthog from "posthog-js"
 
 export default function HomePage() {
-	posthog.capture("my event", { property: "value" })
-
 	return (
 		<>
 			<h1>Markdown Tailwind Viewer</h1>
 			<p>by Pavlos Vinieratos</p>
 			<p>
-				Check out the <Link href="/intro">intro</Link>
+				Check out the <Link href="/intro">intro</Link>, or see the{" "}
+				<Link href="https://github.com/quad-codes/markdown-tailwind-viewer">source code</Link>
 			</p>
 		</>
 	)

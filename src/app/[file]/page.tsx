@@ -23,8 +23,6 @@ export default function FilePage({ params }: FilePageProps) {
 
 /// common file for this and custom
 
-// link to github
-
 // link to raw md? :thinking::
 
 //codeblocks copy button

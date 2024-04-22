@@ -22,3 +22,7 @@ https://md.quad.codes/custom?u=<any-url-to-a-markdown-file>
 For example, we can use the readme of [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) and create this link:
 
 https://md.quad.codes/custom?u=https://raw.githubusercontent.com/react-native-community/rn-diff-purge/master/README_MAINTAINERS.md
+
+### Do you wanna see how it works?
+
+The source code lives [here](https://github.com/quad-codes/markdown-tailwind-viewer), go check it out!
