@@ -5,7 +5,8 @@ import remarkFrontmatter from "remark-frontmatter"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { fixMarkdownUrl } from "./utils"
-import { SkewLoader } from "react-spinners"
+import rehypeRaw from "rehype-raw"
+import { RandomLoader } from "./RandomLoader"
 
 const fetchFile = async (url: string) => {
 	const res = await fetch(url)
@@ -36,5 +37,9 @@ export function MDRenderer({ url }: { url: string }) {
 		)
 	}
 
-	return <Markdown remarkPlugins={[remarkGfm, remarkFrontmatter]}>{markdown}</Markdown>
+	return (
+		<Markdown remarkPlugins={[remarkGfm, remarkFrontmatter]} rehypePlugins={[rehypeRaw]}>
+			{markdown}
+		</Markdown>
+	)
 }
