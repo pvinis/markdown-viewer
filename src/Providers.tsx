@@ -18,5 +18,3 @@ export function Providers({ children }: React.PropsWithChildren) {
 		</PostHogProvider>
 	)
 }
-
-// prettier with tw

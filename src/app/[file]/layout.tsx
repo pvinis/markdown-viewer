@@ -2,6 +2,7 @@ import { SupportedFrontMatter } from "@/types"
 import fm from "front-matter"
 import { Metadata } from "next"
 import { FilePageProps } from "./page"
+import { fixMarkdownUrl } from "@/utils"
 
 const host = process.env.NEXT_PUBLIC_MD_HOST
 
@@ -12,8 +13,9 @@ export default function EmptyLayout({ children }: React.PropsWithChildren) {
 export async function generateMetadata({ params }: FilePageProps): Promise<Metadata> {
 	const { file } = params
 	const url = `${host}/${file}`
+	const fixedUrl = fixMarkdownUrl(url)
 
-	const mdFile = await fetch(url).then((res) => res.text())
+	const mdFile = await fetch(fixedUrl).then((res) => res.text())
 
 	const { attributes } = fm<SupportedFrontMatter>(mdFile)
 

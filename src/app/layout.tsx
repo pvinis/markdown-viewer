@@ -7,11 +7,7 @@ export const metadata: Metadata = {
 	description: "A great markdown viewer by pavlos",
 }
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
 			<body>

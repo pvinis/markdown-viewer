@@ -9,7 +9,7 @@ export default function HomePage() {
 			<h1>Markdown Tailwind Viewer</h1>
 			<p>by Pavlos Vinieratos</p>
 			<p>
-				Check out the <Link href="/intro.md">intro</Link>
+				Check out the <Link href="/intro">intro</Link>
 			</p>
 		</>
 	)

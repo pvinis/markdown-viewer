@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import remarkFrontmatter from "remark-frontmatter"
 import Markdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { fixMarkdownUrl } from "./utils"
 
 const fetchFile = async (url: string) => {
 	const res = await fetch(url)
@@ -11,14 +12,16 @@ const fetchFile = async (url: string) => {
 }
 
 export function MDRenderer({ url }: { url: string }) {
+	const fixedUrl = fixMarkdownUrl(url)
+
 	const {
 		data: markdown,
 		isLoading,
 		isError,
 		error,
 	} = useQuery({
-		queryKey: [url],
-		queryFn: () => fetchFile(url),
+		queryKey: [fixedUrl],
+		queryFn: () => fetchFile(fixedUrl),
 		retry: false,
 	})
 

@@ -14,7 +14,7 @@ export default function CustomPage() {
 			<>
 				<h2>Wrong url</h2>
 				<p>
-					Try going to the <Link href="/intro.md">intro</Link> instead 🙂
+					Try going to the <Link href="/intro">intro</Link> instead 🙂
 				</p>
 			</>
 		)
