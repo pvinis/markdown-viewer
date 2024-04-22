@@ -7,9 +7,8 @@ import { useSearchParams } from "next/navigation"
 export default function CustomPage() {
 	const searchParams = useSearchParams()
 	const url = searchParams.get("u")
-	/// make it so url is restricted, so i don t fire random requests
 
-	if (!url)
+	if (!url) {
 		return (
 			<>
 				<h2>Wrong url</h2>
@@ -18,6 +17,7 @@ export default function CustomPage() {
 				</p>
 			</>
 		)
+	}
 
 	return <MDRenderer url={url} />
 }

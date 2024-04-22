@@ -15,6 +15,4 @@ export default function HomePage() {
 
 // spinner for loading? or some simple dots?
 
-///try witouhgvercel.json file
-
 // better readme

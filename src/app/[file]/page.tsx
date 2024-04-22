@@ -21,10 +21,6 @@ export default function FilePage({ params }: FilePageProps) {
 	return <MDRenderer url={url} />
 }
 
-/// common file for this and custom
-
-// link to raw md? :thinking::
-
 //codeblocks copy button
 
-// /// dark mode favicon
+//  dark mode favicon
