@@ -22,6 +22,4 @@ export default function CustomPage() {
 	return <MDRenderer url={url} />
 }
 
-//// add robots file
-
 /// choose a font
