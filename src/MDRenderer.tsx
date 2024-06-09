@@ -32,7 +32,7 @@ export function MDRenderer({ url }: { url: string }) {
 		return (
 			<div>
 				<span className="text-7xl">M</span>
-				<SkewLoader />
+				<RandomLoader />
 			</div>
 		)
 	}
