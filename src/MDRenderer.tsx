@@ -28,14 +28,7 @@ export function MDRenderer({ url }: { url: string }) {
 	})
 
 	if (isError) return <p>Error: {String(error)}</p>
-	if (isLoading) {
-		return (
-			<div>
-				<span className="text-7xl">M</span>
-				<SkewLoader />
-			</div>
-		)
-	}
+	if (isLoading) return <RandomLoader />
 
 	return (
 		<Markdown remarkPlugins={[remarkGfm, remarkFrontmatter]} rehypePlugins={[rehypeRaw]}>
