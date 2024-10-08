@@ -3,13 +3,13 @@ import Link from "next/link"
 export default function HomePage() {
 	return (
 		<>
-			<h1>Markdown Tailwind Viewer</h1>
+			<h1>Markdown Viewer</h1>
 			<p>
 				by Pavlos Vinieratos (<Link href="https://twitter.com/pvinis">pvinis</Link>)
 			</p>
 			<p>
 				Check out the <Link href="/intro">intro</Link>, or see the{" "}
-				<Link href="https://github.com/pvinis/markdown-tailwind-viewer">source code</Link>
+				<Link href="https://github.com/pvinis/markdown-viewer">source code</Link>
 			</p>
 		</>
 	)
