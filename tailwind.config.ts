@@ -2,6 +2,11 @@ export default {
 	content: ["./src/**/*.tsx"],
 	theme: {
 		extend: {
+			colors: {
+				background: "var(--color-background)",
+				"on-background": "var(--color-on-background)",
+				accent: "var(--color-accent)",
+			},
 			typography: {
 				quoteless: {
 					css: {

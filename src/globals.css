@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--color-background: white;
+	--color-accent: theme("colors.pink.200");
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: theme("colors.gray.700");
+		--color-accent: theme("colors.pink.600");
+	}
+}
+
 @layer base {
 	html {
-		@apply bg-white dark:bg-gray-700;
+		@apply bg-background;
 	}
 }
