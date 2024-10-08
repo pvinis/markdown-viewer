@@ -16,7 +16,7 @@ declare module "@tanstack/react-router" {
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
 		<Providers>
-			<div className="prose prose-quoteless mx-auto max-w-prose bg-background px-6 pb-16 pt-32 lg:prose-xl dark:prose-invert prose-blockquote:font-normal prose-blockquote:text-gray-400">
+			<div className="prose prose-quoteless mx-auto max-w-prose bg-background px-6 pb-16 pt-32 lg:prose-xl dark:prose-invert prose-blockquote:font-normal prose-blockquote:text-gray-400 2xl:max-w-[1000px]">
 				<RouterProvider router={router} />
 			</div>
 		</Providers>
