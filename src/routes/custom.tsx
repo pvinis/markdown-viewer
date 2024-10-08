@@ -1,27 +1,23 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, notFound } from "@tanstack/react-router"
+import { err, Result } from "neverthrow"
 import { z } from "zod"
+import { FetchError, fetchMarkdown } from "../utils"
 
 const customSchema = z.object({
 	u: z.string().optional(),
 })
 
-type CustomError = "missingUrl" | "failedToFetch" | "unknownError"
-
 export const Route = createFileRoute("/custom")({
 	validateSearch: customSchema,
 	loaderDeps: ({ search: { u } }) => ({ u }),
-	loader: async ({
-		deps: { u },
-	}): Promise<{ data: string; error: null } | { data: null; error: CustomError }> => {
-		if (!u) return { data: null, error: "missingUrl" }
+	loader: async ({ deps: { u } }): Promise<Result<string, FetchError | "missingUrl">> => {
+		if (!u) return err("missingUrl")
 
-		try {
-			const res = await fetch(u)
-			if (!res.ok) return { data: null, error: "failedToFetch" }
-
-			return { data: await res.text(), error: null }
-		} catch (e) {
-			return { data: null, error: "unknownError" }
+		const result = await fetchMarkdown(u)
+		if (result.isErr()) {
+			if (result.error === "notFound" || result.error === "unknownError") throw notFound()
 		}
+
+		return result
 	},
 })
