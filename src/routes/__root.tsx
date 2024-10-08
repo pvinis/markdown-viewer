@@ -8,4 +8,17 @@ export const Route = createRootRoute({
 			{/* <TanStackRouterDevtools /> */}
 		</div>
 	),
+	notFoundComponent: FourOhFour,
 })
+
+function FourOhFour() {
+	return (
+		<>
+			<h1>404</h1>
+			<p>Page not found</p>
+			<p>
+				Try going to the <a href="/intro">intro</a> instead 🙂
+			</p>
+		</>
+	)
+}
