@@ -1,6 +1,7 @@
 ---
 title: Intro
 favicon: https://avatars.githubusercontent.com/u/100233?v=4
+description: Show off md.quad.codes
 ---
 
 # I made a thing!

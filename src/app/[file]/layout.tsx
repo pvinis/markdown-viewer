@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: FilePageProps): Promise<Metad
 
 	return {
 		title: attributes.title,
+		description: attributes.description ?? "A great markdown viewer by pvinis",
 		icons: favicon,
 	}
 }
