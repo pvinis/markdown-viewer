@@ -1,4 +1,5 @@
 import { createLazyFileRoute } from "@tanstack/react-router"
+import { MDRenderer } from "../components/MDRenderer"
 
 export const Route = createLazyFileRoute("/custom")({
 	component: Custom,
@@ -8,7 +9,6 @@ function Custom() {
 	const { u } = Route.useSearch()
 	const { data, error } = Route.useLoaderData()
 
-	console.log({ error, data })
 	if (error === "missingUrl") {
 		return (
 			<>
@@ -42,11 +42,5 @@ function Custom() {
 		)
 	}
 
-	return (
-		<div>
-			Hello from custom! {u}
-			<p>{data}</p>
-		</div>
-	)
-
+	return <MDRenderer text={data!} />
 }

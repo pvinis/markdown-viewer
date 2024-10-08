@@ -5,7 +5,7 @@ const customSchema = z.object({
 	u: z.string().optional(),
 })
 
-type CustomError = "missingUrl" | "failedToFetch"
+type CustomError = "missingUrl" | "failedToFetch" | "unknownError"
 
 export const Route = createFileRoute("/custom")({
 	validateSearch: customSchema,
@@ -17,13 +17,11 @@ export const Route = createFileRoute("/custom")({
 
 		try {
 			const res = await fetch(u)
-			console.log({ res })
 			if (!res.ok) return { data: null, error: "failedToFetch" }
 
 			return { data: await res.text(), error: null }
 		} catch (e) {
-			console.log({ e })
-			return { data: null, error: "failedToFetch" }
+			return { data: null, error: "unknownError" }
 		}
 	},
 })

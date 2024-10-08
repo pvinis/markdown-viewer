@@ -14,6 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as CustomImport } from './routes/custom'
+import { Route as FileImport } from './routes/$file'
 
 // Create Virtual Routes
 
@@ -25,6 +26,11 @@ const CustomRoute = CustomImport.update({
   path: '/custom',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/custom.lazy').then((d) => d.Route))
+
+const FileRoute = FileImport.update({
+  path: '/$file',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/$file.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -42,6 +48,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/$file': {
+      id: '/$file'
+      path: '/$file'
+      fullPath: '/$file'
+      preLoaderRoute: typeof FileImport
+      parentRoute: typeof rootRoute
+    }
     '/custom': {
       id: '/custom'
       path: '/custom'
@@ -56,36 +69,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
+  '/$file': typeof FileRoute
   '/custom': typeof CustomRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
+  '/$file': typeof FileRoute
   '/custom': typeof CustomRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexLazyRoute
+  '/$file': typeof FileRoute
   '/custom': typeof CustomRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/custom'
+  fullPaths: '/' | '/$file' | '/custom'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/custom'
-  id: '__root__' | '/' | '/custom'
+  to: '/' | '/$file' | '/custom'
+  id: '__root__' | '/' | '/$file' | '/custom'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
+  FileRoute: typeof FileRoute
   CustomRoute: typeof CustomRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
+  FileRoute: FileRoute,
   CustomRoute: CustomRoute,
 }
 
@@ -102,11 +120,15 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/$file",
         "/custom"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
+    },
+    "/$file": {
+      "filePath": "$file.tsx"
     },
     "/custom": {
       "filePath": "custom.tsx"
