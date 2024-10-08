@@ -4,5 +4,5 @@ import tailwindConfig from "../../tailwind.config.ts"
 const fullConfig = resolveConfig(tailwindConfig)
 
 export function useTWColor(color: string) {
-	return fullConfig.theme.colors[color] ?? ""
+	return (fullConfig.theme.colors as any)[color] ?? ""
 }
