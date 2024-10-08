@@ -7,20 +7,20 @@ export const Route = createLazyFileRoute("/custom")({
 
 function Custom() {
 	const { u } = Route.useSearch()
-	const { data, error } = Route.useLoaderData()
+	const result = Route.useLoaderData()
 
 	if (result.isErr()) {
 		if (result.error === "missingUrl") {
 			return (
 				<>
-					<h2>Missing url</h2>
+					<h1>Missing url</h1>
 					<p>
 						You should add a <code>u=</code> on your url, like:
 					</p>
 					<p>
 						<a href="/custom?u=https://raw.githubusercontent.com/react-native-community/rn-diff-purge/master/README_MAINTAINERS.md">
 							https://md.quad.codes/custom?
-							<span className="bg-accent rounded-md px-1 py-0.5">u=</span>
+							<span className="rounded-md bg-accent px-1 py-0.5">u=</span>
 							https://raw.githubusercontent.com/react-native-community/rn-diff-purge/master/README_MAINTAINERS.md
 						</a>
 					</p>
@@ -31,16 +31,19 @@ function Custom() {
 			)
 		}
 
-	if (error === "failedToFetch") {
-		return (
-			<>
-				<h2>Failed to fetch url</h2>
-				<p>Make sure the url is valid.</p>
-				<p>
-					Your url: <code>{u}</code>
-				</p>
-			</>
-		)
+		if (result.error === "failedToFetch") {
+			return (
+				<>
+					<h1>Failed to fetch url</h1>
+					<p>Make sure the url is valid.</p>
+					<p>
+						Your url: <code>{u}</code>
+					</p>
+				</>
+			)
+		}
+
+		return <h1>Unknown error</h1>
 	}
 
 	return <MDRenderer text={result.value} />

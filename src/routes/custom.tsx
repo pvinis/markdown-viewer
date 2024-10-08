@@ -13,7 +13,7 @@ export const Route = createFileRoute("/custom")({
 	loader: async ({ deps: { u } }): Promise<Result<string, FetchError | "missingUrl">> => {
 		if (!u) return err("missingUrl")
 
-		const result = await fetchMarkdown(u)
+		const result = await fetchMarkdown(u, "custom")
 		if (result.isErr()) {
 			if (result.error === "notFound" || result.error === "unknownError") throw notFound()
 		}

@@ -8,28 +8,30 @@ import {
 	ScaleLoader,
 	SkewLoader,
 } from "react-spinners"
+import { useTWColor } from "../hooks/useTWColor"
 
 const spinnerOptions = [
 	{
-		spinner: () => (
+		spinner: (p: any) => (
 			<>
-				<span className="text-7xl">M</span>
-				<SkewLoader />
+				<span className="text-3xl text-on-background">M</span>
+				<SkewLoader {...p} />
 			</>
 		),
 	},
-	{ spinner: CircleLoader },
-	{ spinner: BeatLoader },
-	{ spinner: BounceLoader },
-	{ spinner: ClimbingBoxLoader },
-	{ spinner: PropagateLoader },
-	{ spinner: PulseLoader },
-	{ spinner: ScaleLoader },
+	{ spinner: (p: any) => <CircleLoader {...p} /> },
+	{ spinner: (p: any) => <BeatLoader {...p} /> },
+	{ spinner: (p: any) => <BounceLoader {...p} /> },
+	{ spinner: (p: any) => <ClimbingBoxLoader {...p} /> },
+	{ spinner: (p: any) => <PropagateLoader {...p} /> },
+	{ spinner: (p: any) => <PulseLoader {...p} /> },
+	{ spinner: (p: any) => <ScaleLoader {...p} /> },
 ]
 
 export function RandomSpinner() {
 	const randomSpinnerIndex = Math.floor(Math.random() * spinnerOptions.length)
 	const SelectedSpinner = spinnerOptions[randomSpinnerIndex].spinner
+	const color = useTWColor("on-background")
 
-	return <SelectedSpinner />
+	return <SelectedSpinner color={color} />
 }

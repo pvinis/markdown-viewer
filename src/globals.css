@@ -4,12 +4,14 @@
 
 :root {
 	--color-background: white;
+	--color-on-background: theme("colors.gray.700");
 	--color-accent: theme("colors.pink.200");
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--color-background: theme("colors.gray.700");
+		--color-on-background: theme("colors.gray.300");
 		--color-accent: theme("colors.pink.600");
 	}
 }

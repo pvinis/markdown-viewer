@@ -1,15 +1,13 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
 import { Result } from "neverthrow"
 import { FetchError, fetchMarkdown } from "../utils"
-import { FourOhFour } from "../pages/404"
-import { RandomSpinner } from "../pages/RandomSpinner"
 
 const host = import.meta.env.VITE_PUBLIC_MD_HOST
 
 export const Route = createFileRoute("/$file")({
 	loader: async ({ params: { file } }): Promise<Result<string, FetchError>> => {
 		const url = `${host}/${file}.md`
-		const result = await fetchMarkdown(url)
+		const result = await fetchMarkdown(url, "$file")
 
 		if (result.isErr()) {
 			if (result.error === "notFound" || result.error === "unknownError") throw notFound()
@@ -17,6 +15,4 @@ export const Route = createFileRoute("/$file")({
 
 		return result
 	},
-	pendingComponent: RandomSpinner,
-	notFoundComponent: FourOhFour,
 })
