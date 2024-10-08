@@ -1,5 +1,3 @@
-"use client"
-
 import {
 	BeatLoader,
 	BounceLoader,
@@ -29,7 +27,7 @@ const spinnerOptions = [
 	{ spinner: ScaleLoader },
 ]
 
-export function RandomLoader() {
+export function RandomSpinner() {
 	const randomSpinnerIndex = Math.floor(Math.random() * spinnerOptions.length)
 	const SelectedSpinner = spinnerOptions[randomSpinnerIndex].spinner
 
