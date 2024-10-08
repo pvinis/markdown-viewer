@@ -26,7 +26,8 @@ function File() {
 			<Helmet>
 				{attributes.title && <title>{attributes.title}</title>}
 				{attributes.description && <meta name="description" content={attributes.description} />}
-				{favicon && <link rel="icon" href={favicon} />}
+				{favicon && <link rel="icon" href={favicon} media="(prefers-color-scheme: light)" />}
+				{favicon && <link rel="icon" href={favicon} media="(prefers-color-scheme: dark)" />}
 			</Helmet>
 			<MDRenderer text={result.value} />
 		</>

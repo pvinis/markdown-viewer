@@ -43,5 +43,5 @@ function Custom() {
 		)
 	}
 
-	if (result.isOk()) return <MDRenderer text={result.value} />
+	return <MDRenderer text={result.value} />
 }
