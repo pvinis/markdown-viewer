@@ -1,6 +1,8 @@
 import "./globals.css"
 import { Providers } from "@/Providers"
 import { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
 	title: "MD Viewer",
@@ -16,6 +18,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 						{children}
 					</div>
 				</Providers>
+				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	)
