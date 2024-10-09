@@ -1,6 +1,6 @@
 # a great markdown viewer
 
-> by pvinis
+> by Pavlos Vinieratos
 
 ### 🔗 [md.quad.codes](https://md.quad.codes)
 

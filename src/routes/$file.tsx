@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
 import { Result } from "neverthrow"
 import { FetchError, fetchMarkdown } from "../utils"
+import { RandomSpinner } from "../pages/RandomSpinner"
 
 const host = import.meta.env.VITE_PUBLIC_MD_HOST
 
@@ -16,4 +17,5 @@ export const Route = createFileRoute("/$file")({
 
 		return result
 	},
+	pendingComponent: RandomSpinner,
 })

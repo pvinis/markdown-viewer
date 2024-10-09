@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router"
 import { err, Result } from "neverthrow"
 import { z } from "zod"
 import { FetchError, fetchMarkdown } from "../utils"
+import { RandomSpinner } from "../pages/RandomSpinner"
 
 const customSchema = z.object({
 	u: z.string().optional(),
@@ -20,4 +21,5 @@ export const Route = createFileRoute("/custom")({
 
 		return result
 	},
+	pendingComponent: RandomSpinner,
 })
