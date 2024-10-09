@@ -6,7 +6,8 @@ const host = import.meta.env.VITE_PUBLIC_MD_HOST
 
 export const Route = createFileRoute("/$file")({
 	loader: async ({ params: { file } }): Promise<Result<string, FetchError>> => {
-		const url = `${host}/${file}.md`
+		const fileWithExtension = file.endsWith(".md") ? file : `${file}.md`
+		const url = `${host}/${fileWithExtension}`
 		const result = await fetchMarkdown(url, "$file")
 
 		if (result.isErr()) {
