@@ -1,5 +1,6 @@
 import { createLazyFileRoute } from "@tanstack/react-router"
 import { Helmet } from "react-helmet-async"
+import { generateOgImage } from "../utils"
 
 export const Route = createLazyFileRoute("/")({
 	component: Index,
@@ -16,6 +17,7 @@ function Index() {
 				<meta property="og:title" content="Markdown Viewer" />
 				<meta property="og:description" content="A great markdown viewer by Pavlos Vinieratos" />
 				<meta property="og:type" content="website" />
+				<meta property="og:image" content={generateOgImage("Markdown Viewer")} />
 			</Helmet>
 			<h1>Markdown Viewer</h1>
 			<p>

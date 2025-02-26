@@ -3,6 +3,7 @@ import { MDRenderer } from "../components/MDRenderer"
 import { SupportedFrontMatter } from "../types"
 import fm from "front-matter"
 import { Helmet } from "react-helmet-async"
+import { generateOgImage } from "../utils"
 
 export const Route = createLazyFileRoute("/$file")({
 	component: File,
@@ -35,6 +36,10 @@ function File() {
 					<meta property="og:description" content={attributes.description} />
 				)}
 				<meta property="og:type" content="website" />
+				<meta
+					property="og:image"
+					content={generateOgImage(attributes.title || "Markdown Viewer")}
+				/>
 			</Helmet>
 			<MDRenderer text={result.value} />
 		</>
