@@ -1,4 +1,5 @@
 import { createLazyFileRoute } from "@tanstack/react-router"
+import { Helmet } from "react-helmet-async"
 
 export const Route = createLazyFileRoute("/")({
 	component: Index,
@@ -7,6 +8,15 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
 	return (
 		<>
+			<Helmet>
+				<title>Markdown Viewer</title>
+				<meta name="description" content="A great markdown viewer by Pavlos Vinieratos" />
+
+				{/* Open Graph metadata */}
+				<meta property="og:title" content="Markdown Viewer" />
+				<meta property="og:description" content="A great markdown viewer by Pavlos Vinieratos" />
+				<meta property="og:type" content="website" />
+			</Helmet>
 			<h1>Markdown Viewer</h1>
 			<p>
 				by Pavlos Vinieratos (<a href="https://twitter.com/pvinis">pvinis</a>)

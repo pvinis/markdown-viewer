@@ -28,6 +28,13 @@ function File() {
 				{attributes.description && <meta name="description" content={attributes.description} />}
 				{favicon && <link rel="icon" href={favicon} media="(prefers-color-scheme: light)" />}
 				{favicon && <link rel="icon" href={favicon} media="(prefers-color-scheme: dark)" />}
+
+				{/* Open Graph metadata */}
+				{attributes.title && <meta property="og:title" content={attributes.title} />}
+				{attributes.description && (
+					<meta property="og:description" content={attributes.description} />
+				)}
+				<meta property="og:type" content="website" />
 			</Helmet>
 			<MDRenderer text={result.value} />
 		</>
