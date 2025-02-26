@@ -51,7 +51,7 @@ function Custom() {
 	}
 
 	// Parse frontmatter if present
-	const { attributes, body } = fm<SupportedFrontMatter>(result.value)
+	const { attributes } = fm<SupportedFrontMatter>(result.value)
 
 	// Create favicon from emoji if specified
 	const favicon = attributes.favicon
