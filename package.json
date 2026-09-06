@@ -16,7 +16,7 @@
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-markdown": "^9.0.1",
-    "react-spinners": "^0.14.1",
+    "react-spinners": "^0.17.0",
     "rehype-raw": "^7.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
